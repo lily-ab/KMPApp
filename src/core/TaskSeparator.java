@@ -30,7 +30,7 @@ public class TaskSeparator {
     }
 
     public void generateSubTask(File phrase, File file, String subTaskName) throws IOException {
-        if (file.length() / (1024 * 1024) < 0) {
+        if (file.length() / (1024 * 1024) <= 230) {
             fileHandler.makeArchive(phrase,file,subTaskName);
         }
         else{
