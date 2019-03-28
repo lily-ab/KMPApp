@@ -1,10 +1,7 @@
 package core;
 
 import java.io.*;
-import java.util.HashSet;
 import java.util.Set;
-
-import static com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolver.length;
 
 public class TaskSeparator {
 
@@ -13,7 +10,7 @@ public class TaskSeparator {
     public void separate(File phrase, File text,String subTaskName) throws IOException {
 
         Set<String> sequences = makePhrases(phrase);
-
+        int k=0;
         for(String sequence: sequences){
 
             File file = new File("phrase.txt");
@@ -22,7 +19,7 @@ public class TaskSeparator {
             fw.flush();
             fw.close();
             long i=file.length();
-            generateSubTask(file,text,subTaskName);
+            generateSubTask(file,text,subTaskName+k++);
             file.delete();
         }
     }
@@ -51,12 +48,12 @@ public class TaskSeparator {
         long delta;
 
         while((delta =fileLen-i)>=len){
-            k++;
+
             char[] charArray = new char[(int) len];
             bufferedReader.read(charArray, 0, (int) len);
 
             i+=len;
-            fileHandler.writeFiles(subTaskName,k,charArray,phrase);
+            fileHandler.writeFiles(subTaskName,k++,charArray,phrase);
         }
         if(delta>0){
             char[] charArray = new char[(int) delta];

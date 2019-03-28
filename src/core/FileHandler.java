@@ -7,12 +7,12 @@ import java.util.zip.ZipOutputStream;
 public class FileHandler {
 
     public void writeFiles(String subTaskName, int k, char[] charArray, File phrase) throws IOException {
-        File taskFile = new File(subTaskName+".txt");
+        File taskFile = new File("file.txt");
         FileWriter fileWriter = new FileWriter(taskFile);
         fileWriter.write(charArray);
         fileWriter.flush();
         fileWriter.close();
-        makeArchive(phrase,taskFile,"src/core/resources/task"+k);
+        makeArchive(phrase,taskFile,"src/core/resources/"+subTaskName+k);
         taskFile.delete();
     }
 
