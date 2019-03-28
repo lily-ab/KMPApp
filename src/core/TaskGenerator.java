@@ -13,12 +13,9 @@ public class TaskGenerator {
         BufferedReader br = new BufferedReader(new FileReader(phrase));
         StringBuilder stringBuilder=new StringBuilder();
         String line;
-        String ls=System.getProperty("line.separator");
         while((line = br.readLine())!=null){
             stringBuilder.append(line);
-            stringBuilder.append(ls);
         }
-        stringBuilder.deleteCharAt(stringBuilder.length()-1);
         String bestSentence = stringBuilder.toString();
 
         return GetUniqueWordPairs(bestSentence);
