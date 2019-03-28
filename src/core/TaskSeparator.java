@@ -31,7 +31,7 @@ public class TaskSeparator {
 
     public void generateSubTask(File phrase, File file, String subTaskName) throws IOException {
         if (file.length() / (1024 * 1024) <= 230) {
-            fileHandler.makeArchive(phrase,file,subTaskName);
+            fileHandler.makeArchive(phrase,file,"src/core/resources/"+subTaskName);
         }
         else{
             writeSubTasks(phrase,file,subTaskName);
@@ -43,7 +43,7 @@ public class TaskSeparator {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
         int k=0;
         int i=0;
-        long len=phrase.length()*2;
+        long len=4;
         long fileLen=file.length();
         long delta;
 

@@ -34,12 +34,4 @@ public class KMPImplementer {
             }
         return -1;
     }
-
-    static String getRandomString(Random rnd, int maxlen) {
-        int n = rnd.nextInt(maxlen);
-        char[] s = new char[n];
-        for (int i = 0; i < n; i++)
-            s[i] = (char) ('a' + rnd.nextInt(3));
-        return new String(s);
-    }
 }
